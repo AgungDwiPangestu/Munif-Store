@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo API Import Buku - Munif Store</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .demo-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .demo-section h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .api-url {
+        background: #2c3e50;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        overflow-x: auto;
+        margin: 10px 0;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 15px 0;
+      }
+
+      button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      button:hover {
+        background: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .results {
+        margin-top: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+        border: 2px solid #e0e0e0;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .results pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 20px;
+        color: #667eea;
+      }
+
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .book-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 15px;
+        background: #fff;
+      }
+
+      .book-card img {
+        width: 80px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+
+      .book-info {
+        flex: 1;
+      }
+
+      .book-title {
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 5px;
+      }
+
+      .book-author {
+        color: #666;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .book-meta {
+        color: #999;
+        font-size: 12px;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .warning-box {
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 Demo API Import Buku</h1>
+      <p class="subtitle">
+        Testing & Demo untuk fitur import buku dari Google Books API
+      </p>
+
+      <div class="info-box">
+        <strong>ℹ️ Informasi:</strong><br />
+        Halaman ini adalah demo untuk testing API pencarian buku. Gunakan tombol
+        di bawah untuk mencoba berbagai query atau buat query custom Anda
+        sendiri.
+      </div>
+
+      <!-- Demo 1: Google Books API -->
+      <div class="demo-section">
+        <h2>🔍 Demo 1: Pencarian dari Google Books API</h2>
+        <p>Klik salah satu tombol untuk mencoba pencarian:</p>
+
+        <div class="button-group">
+          <button onclick="searchBooks('programming', 'google', 10)">
+            Programming Books
+          </button>
+          <button onclick="searchBooks('python tutorial', 'google', 10)">
+            Python Tutorial
+          </button>
+          <button onclick="searchBooks('javascript', 'google', 10)">
+            JavaScript Books
+          </button>
+          <button onclick="searchBooks('data science', 'google', 10)">
+            Data Science
+          </button>
+          <button onclick="searchBooks('business', 'google', 15)">
+            Business Books
+          </button>
+          <button onclick="searchBooks('novel', 'google', 10)">Novel</button>
+        </div>
+
+        <div style="margin-top: 15px">
+          <strong>Custom Query:</strong>
+          <div style="display: flex; gap: 10px; margin-top: 10px">
+            <input
+              type="text"
+              id="customQuery"
+              placeholder="Masukkan kata kunci..."
+              style="
+                flex: 1;
+                padding: 10px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+              "
+            />
+            <button
+              onclick="searchBooks(document.getElementById('customQuery').value, 'google', 20)"
+            >
+              Cari
+            </button>
+          </div>
+        </div>
+
+        <div id="apiUrl1" class="api-url" style="display: none"></div>
+        <div id="results1" class="results" style="display: none"></div>
+      </div>
+
+      <!-- Demo 2: Open Library API -->
+      <div class="demo-section">
+        <h2>🔍 Demo 2: Pencarian dari Open Library API</h2>
+        <p>Membandingkan hasil dari sumber API yang berbeda:</p>
+
+        <div class="button-group">
+          <button onclick="searchBooks('programming', 'openlibrary', 10)">
+            Programming Books
+          </button>
+          <button onclick="searchBooks('python', 'openlibrary', 10)">
+            Python Books
+          </button>
+          <button onclick="searchBooks('science', 'openlibrary', 10)">
+            Science Books
+          </button>
+        </div>
+
+        <div id="apiUrl2" class="api-url" style="display: none"></div>
+        <div id="results2" class="results" style="display: none"></div>
+      </div>
+
+      <!-- Demo 3: Raw JSON -->
+      <div class="demo-section">
+        <h2>📄 Demo 3: Raw JSON Response</h2>
+        <p>Melihat response JSON mentah dari API:</p>
+
+        <div class="button-group">
+          <button onclick="searchBooksRaw('machine learning', 'google', 5)">
+            Get Raw JSON
+          </button>
+        </div>
+
+        <div id="apiUrl3" class="api-url" style="display: none"></div>
+        <div id="results3" class="results" style="display: none"></div>
+      </div>
+
+      <div class="warning-box">
+        <strong>⚠️ Note:</strong><br />
+        • API ini menggunakan Google Books API yang memiliki limit 1000 request
+        per hari (gratis)<br />
+        • Open Library API tidak memiliki limit<br />
+        • Pastikan koneksi internet aktif<br />
+        • Beberapa buku mungkin tidak memiliki cover image
+      </div>
+    </div>
+
+    <script>
+      const API_BASE_URL = "/Munif/api/search_books_api.php";
+
+      async function searchBooks(query, source, maxResults) {
+        const resultsDiv = document.getElementById("results1");
+        const apiUrlDiv = document.getElementById("apiUrl1");
+
+        if (!query) {
+          alert("Masukkan kata kunci pencarian!");
+          return;
+        }
+
+        // Show API URL
+        const url = `${API_BASE_URL}?query=${encodeURIComponent(
+          query
+        )}&source=${source}&maxResults=${maxResults}`;
+        apiUrlDiv.textContent = "API Call: " + url;
+        apiUrlDiv.style.display = "block";
+
+        // Show loading
+        resultsDiv.style.display = "block";
+        resultsDiv.innerHTML =
+          '<div class="loading"><div class="spinner"></div><p>Mencari buku...</p></div>';
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.success && data.books && data.books.length > 0) {
+            displayBooksAsCards(data.books, resultsDiv, data.source);
+          } else {
+            resultsDiv.innerHTML =
+              '<p style="text-align: center; padding: 20px;">Tidak ada buku ditemukan.</p>';
+          }
+        } catch (error) {
+          resultsDiv.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">Error: ${error.message}</p>`;
+        }
+      }
+
+      async function searchBooksRaw(query, source, maxResults) {
+        const resultsDiv = document.getElementById("results3");
+        const apiUrlDiv = document.getElementById("apiUrl3");
+
+        if (!query) {
+          alert("Masukkan kata kunci pencarian!");
+          return;
+        }
+
+        const url = `${API_BASE_URL}?query=${encodeURIComponent(
+          query
+        )}&source=${source}&maxResults=${maxResults}`;
+        apiUrlDiv.textContent = "API Call: " + url;
+        apiUrlDiv.style.display = "block";
+
+        resultsDiv.style.display = "block";
+        resultsDiv.innerHTML =
+          '<div class="loading"><div class="spinner"></div><p>Loading...</p></div>';
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        } catch (error) {
+          resultsDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+      }
+
+      function displayBooksAsCards(books, container, source) {
+        let html = `<h3 style="margin-bottom: 15px;">Ditemukan ${books.length} buku dari ${source}</h3>`;
+
+        books.forEach((book) => {
+          const authors = Array.isArray(book.authors)
+            ? book.authors.join(", ")
+            : book.authors;
+          const thumbnail = book.thumbnail || "";
+
+          html += `
+                    <div class="book-card">
+                        ${
+                          thumbnail
+                            ? `<img src="${thumbnail}" alt="${book.title}">`
+                            : `<div style="width: 80px; height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; border-radius: 3px;">No Cover</div>`
+                        }
+                        <div class="book-info">
+                            <div class="book-title">${book.title}</div>
+                            <div class="book-author">oleh ${authors}</div>
+                            <div class="book-meta">
+                                📚 ${book.publisher} | 
+                                📅 ${book.publishedDate} | 
+                                📖 ${book.pageCount || 0} hal
+                                ${book.isbn ? ` | ISBN: ${book.isbn}` : ""}
+                            </div>
+                        </div>
+                    </div>
+                `;
+        });
+
+        container.innerHTML = html;
+      }
+    </script>
+  </body>
+</html>
