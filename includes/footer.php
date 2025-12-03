@@ -50,6 +50,108 @@
 </footer>
 
 <script src="/Munif/assets/js/main.js"></script>
+
+<!-- Chatbot Widget -->
+<div class="chatbot-toggle" id="chatbotToggle" title="Tanya MunifBot">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-panel" id="chatbotPanel">
+    <div class="chatbot-header">
+        <i class="fas fa-robot"></i>
+        <strong>MunifBot</strong>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbotInput" placeholder="Tulis pertanyaan..." />
+        <button id="chatbotSend">Kirim</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const toggle = document.getElementById('chatbotToggle');
+        const panel = document.getElementById('chatbotPanel');
+        const messagesEl = document.getElementById('chatbotMessages');
+        const inputEl = document.getElementById('chatbotInput');
+        const sendBtn = document.getElementById('chatbotSend');
+
+        function addMessage(text, who = 'bot') {
+            const row = document.createElement('div');
+            row.className = 'chatbot-msg ' + who;
+            const bubble = document.createElement('div');
+            bubble.className = 'chatbot-bubble';
+            bubble.textContent = text;
+            row.appendChild(bubble);
+            messagesEl.appendChild(row);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+
+        async function sendMessage(text) {
+            if (text === '') {
+                // Request greeting/intro
+                try {
+                    const res = await fetch('/Munif/api/chatbot.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: ''
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.success) addMessage(data.reply, 'bot');
+                    return;
+                } catch (e) {
+                    addMessage('Tidak bisa terhubung ke server.', 'bot');
+                    return;
+                }
+            }
+            addMessage(text, 'user');
+            try {
+                const res = await fetch('/Munif/api/chatbot.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: text
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    addMessage(data.reply, 'bot');
+                } else {
+                    addMessage('Maaf, terjadi kesalahan.', 'bot');
+                }
+            } catch (e) {
+                addMessage('Tidak bisa terhubung ke server.', 'bot');
+            }
+        }
+
+        toggle.addEventListener('click', function() {
+            const show = panel.style.display !== 'flex';
+            panel.style.display = show ? 'flex' : 'none';
+            if (show && messagesEl.childElementCount === 0) {
+                sendMessage('');
+            }
+        });
+
+        sendBtn.addEventListener('click', function() {
+            const text = (inputEl.value || '').trim();
+            if (!text) return;
+            inputEl.value = '';
+            sendMessage(text);
+        });
+
+        inputEl.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    })();
+</script>
 </body>
 
 </html>
