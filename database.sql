@@ -85,9 +85,10 @@ INSERT INTO categories (name, description) VALUES
 ('Religi', 'Buku keagamaan'),
 ('Komik', 'Komik dan manga');
 
--- Insert admin user (password: admin123)
+-- Insert admin user (password will be set by installer)
+-- Temporary hash, akan di-update oleh install.php
 INSERT INTO users (username, email, password, full_name, role) VALUES
-('admin', 'admin@munifstore.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator', 'admin');
+('admin', 'admin@munifstore.com', 'temp_will_be_updated', 'Administrator', 'admin');
 
 -- Insert sample books
 INSERT INTO books (title, author, isbn, category_id, publisher, publication_year, description, price, stock, image) VALUES

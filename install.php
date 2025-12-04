@@ -93,6 +93,22 @@ foreach ($statements as $statement) {
 
 echo "</div>";
 
+echo "</div>";
+echo "<hr>";
+
+// Update admin password with fresh hash
+if (!$database_created) {
+    mysqli_select_db($conn, 'munif_store');
+}
+
+$fresh_password_hash = password_hash('admin123', PASSWORD_DEFAULT);
+$update_admin = "UPDATE users SET password = '$fresh_password_hash' WHERE username = 'admin'";
+if (mysqli_query($conn, $update_admin)) {
+    echo "<p style='color: green;'>✅ Password admin berhasil di-generate ulang</p>";
+} else {
+    echo "<p style='color: orange;'>⚠️ Gagal update password admin: " . mysqli_error($conn) . "</p>";
+}
+
 echo "<hr>";
 echo "<h3>📊 Ringkasan Instalasi:</h3>";
 echo "<ul>";

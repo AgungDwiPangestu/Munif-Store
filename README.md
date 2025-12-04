@@ -266,11 +266,59 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 ## 🔧 Troubleshooting
 
+### ⚠️ Password Admin Salah Setelah Install di Tempat Lain
+
+**Masalah:** Setelah clone dan install di server/komputer lain, login admin gagal dengan password `admin123`
+
+**Penyebab:** Hash password yang di-generate berbeda antar server karena perbedaan versi PHP atau konfigurasi bcrypt
+
+**Solusi (Pilih salah satu):**
+
+#### **Cara 1: Jalankan Reset Password Tool** ⭐ (Termudah)
+
+1. Akses URL berikut di browser:
+   ```
+   http://localhost/Munif/reset_admin_password.php
+   ```
+2. Password admin akan otomatis di-reset ke `admin123`
+3. Login kembali dengan username `admin` dan password `admin123`
+4. **PENTING:** Hapus file `reset_admin_password.php` setelah selesai untuk keamanan!
+
+#### **Cara 2: Install Ulang Database**
+
+1. Drop database lama (opsional):
+   ```sql
+   DROP DATABASE IF EXISTS munif_store;
+   ```
+2. Jalankan installer lagi:
+   ```
+   http://localhost/Munif/install.php
+   ```
+3. Installer otomatis membuat hash password yang fresh dan compatible dengan server Anda
+
+#### **Cara 3: Update Manual via SQL**
+
+1. Buka phpMyAdmin atau MySQL console
+2. Jalankan query berikut:
+   ```sql
+   USE munif_store;
+   -- Generate hash baru untuk password 'admin123'
+   UPDATE users
+   SET password = '$2y$10$YourNewHashHere'
+   WHERE username = 'admin';
+   ```
+3. Untuk mendapatkan hash baru, gunakan tool `reset_admin_password.php` atau generate di PHP:
+   ```php
+   <?php echo password_hash('admin123', PASSWORD_DEFAULT); ?>
+   ```
+
+**Catatan:** Masalah ini terjadi karena bcrypt menggunakan salt yang berbeda setiap kali hash di-generate, dan installer sekarang otomatis membuat hash fresh saat instalasi.
+
 ### Database Connection Error:
 
-- Pastikan MySQL sudah running di Laragon
+- Pastikan MySQL sudah running di Laragon/XAMPP
 - Cek konfigurasi di `config/db.php`
-- Pastikan database `munif_store` sudah dibuat dan di-import
+- Pastikan database `munif_store` sudah dibuat (jalankan `install.php`)
 
 ### Gambar Tidak Muncul:
 
@@ -286,6 +334,12 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 - Di Windows biasanya tidak masalah
 - Di Linux/Mac, set permission: `chmod 755 assets/images/books/`
+
+### Import Buku dari API Gagal:
+
+- Cek koneksi internet
+- Pastikan API Google Books tidak terblokir
+- Lihat error di console browser (F12)
 
 ## 📞 Support
 
