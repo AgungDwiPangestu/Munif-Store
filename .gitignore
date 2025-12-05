@@ -26,7 +26,6 @@ assets/images/books/*
 FIX_DATABASE_NOW.php
 fix_database_structure.php
 check_database.php
-reset_admin_password.php
 fix_isbn_column.sql
 
 # Database dumps
