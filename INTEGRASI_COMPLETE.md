@@ -2,7 +2,7 @@
 
 ## ✅ Yang Sudah Dilakukan:
 
-Fitur **Import Buku dari API** sudah **digabungkan langsung** ke halaman **Kelola Buku** di Munif Store!
+Fitur **Import Buku dari API** sudah **digabungkan langsung** ke halaman **Kelola Buku** di ApGuns Store!
 
 ## 🚀 Cara Menggunakan (Sangat Mudah!)
 
@@ -16,7 +16,7 @@ Fitur **Import Buku dari API** sudah **digabungkan langsung** ke halaman **Kelol
 2. **Buka Kelola Buku**
 
    - Dari Dashboard → Klik **"Kelola Buku"**
-   - ATAU langsung ke: `http://localhost/Munif/admin/manage_books.php`
+   - ATAU langsung ke: `http://localhost/ApGuns-Store/admin/manage_books.php`
 
 3. **Klik Tombol "Import dari API"**
 
@@ -142,7 +142,7 @@ Fitur **Import Buku dari API** sudah **digabungkan langsung** ke halaman **Kelol
 
 ## 🚀 Next Level:
 
-Sekarang Munif Store punya:
+Sekarang ApGuns Store punya:
 
 - ✅ Katalog buku **lengkap**
 - ✅ Import **otomatis** dari API
@@ -156,4 +156,4 @@ Sekarang Munif Store punya:
 
 **Happy Selling! 📚✨**
 
-_Munif Store - Powered by Google Books API_
+_ApGuns Store - Powered by Google Books API_

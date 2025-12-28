@@ -1,4 +1,4 @@
-# 🔐 Solusi Login Admin - Munif Store
+# 🔐 Solusi Login Admin - ApGuns Store
 
 ## ⚠️ Masalah: Password Admin Selalu Salah Saat Install di Tempat Lain
 
@@ -23,7 +23,7 @@ Tool otomatis untuk reset password tanpa ribet!
 1. **Buka browser** dan akses:
 
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 
 2. **Password akan otomatis direset** dengan hash yang fresh dan compatible!
@@ -35,7 +35,7 @@ Tool otomatis untuk reset password tanpa ribet!
 
 3. **Verifikasi otomatis** akan dilakukan untuk memastikan password bekerja
 
-4. **Login** di: `http://localhost/Munif/pages/login.php`
+4. **Login** di: `http://localhost/ApGuns-Store/pages/login.php`
 
 5. **PENTING:** Hapus file `reset_admin_password.php` setelah selesai untuk keamanan!
 
@@ -53,13 +53,13 @@ Installer sudah diperbaiki untuk mengatasi masalah ini!
 1. **Drop database lama** (di phpMyAdmin):
 
    ```sql
-   DROP DATABASE IF EXISTS munif_store;
+   DROP DATABASE IF EXISTS apguns_store;
    ```
 
 2. **Jalankan installer** yang sudah diperbaiki:
 
    ```
-   http://localhost/Munif/install.php
+   http://localhost/ApGuns-Store/install.php
    ```
 
 3. **Installer baru otomatis:**
@@ -88,14 +88,14 @@ Untuk yang familiar dengan database:
 
    ```php
    <?php
-   // Buat file test.php di folder Munif
+   // Buat file test.php di folder ApGuns-Store
    echo password_hash('admin123', PASSWORD_DEFAULT);
    ?>
    ```
 
-2. **Akses** `http://localhost/Munif/test.php` dan copy hash yang muncul
+2. **Akses** `http://localhost/ApGuns-Store/test.php` dan copy hash yang muncul
 
-3. **Buka phpMyAdmin**, pilih database `munif_store`
+3. **Buka phpMyAdmin**, pilih database `apguns_store`
 
 4. **Jalankan query:**
 
@@ -128,7 +128,7 @@ Untuk yang familiar dengan database:
 **Solusi:**
 
 1. Pastikan **MySQL running** di Laragon/XAMPP
-2. Cek di phpMyAdmin apakah database `munif_store` ada
+2. Cek di phpMyAdmin apakah database `apguns_store` ada
 3. Jika tidak ada, jalankan `install.php`
 
 ### Hash password tidak berubah?
@@ -149,7 +149,7 @@ Setelah instalasi fresh atau reset:
 ```
 Username: admin
 Password: admin123
-Email:    admin@munifstore.com
+Email:    admin@apgunsstore.com
 Role:     admin
 ```
 
@@ -164,13 +164,13 @@ Role:     admin
 1. **Reset password:**
 
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 
 2. **Login:**
 
    ```
-   http://localhost/Munif/pages/login.php
+   http://localhost/ApGuns-Store/pages/login.php
    ```
 
    Username: `admin` | Password: `admin123`
@@ -245,7 +245,7 @@ Jika masih tidak bisa login setelah semua solusi di atas:
 1. **Buka browser** dan akses:
 
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 
 2. **Password akan otomatis direset** ke:
@@ -268,15 +268,15 @@ Kemungkinan database belum diinstall dengan benar.
 ### Cek apakah database sudah ada:
 
 1. Buka **phpMyAdmin**: `http://localhost/phpmyadmin`
-2. Cek apakah database **`munif_store`** ada
+2. Cek apakah database **`apguns_store`** ada
 3. Jika tidak ada, jalankan installer:
    ```
-   http://localhost/Munif/install.php
+   http://localhost/ApGuns-Store/install.php
    ```
 
 ### Jika database sudah ada, cek tabel users:
 
-1. Buka database **`munif_store`**
+1. Buka database **`apguns_store`**
 2. Klik tabel **`users`**
 3. Pastikan ada user dengan:
    - **username:** `admin`
@@ -289,10 +289,10 @@ Kemungkinan database belum diinstall dengan benar.
 Jika masih error, install ulang database:
 
 1. **Backup data** (jika ada data penting)
-2. **Drop database** `munif_store` di phpMyAdmin
+2. **Drop database** `apguns_store` di phpMyAdmin
 3. **Jalankan installer:**
    ```
-   http://localhost/Munif/install.php
+   http://localhost/ApGuns-Store/install.php
    ```
 4. **Login** dengan:
    ```
@@ -307,7 +307,7 @@ Jika masih error, install ulang database:
 Jika cara di atas tidak berhasil:
 
 1. Buka **phpMyAdmin**
-2. Pilih database **`munif_store`**
+2. Pilih database **`apguns_store`**
 3. Klik tabel **`users`**
 4. **Edit** baris user admin (klik icon pensil)
 5. **Ubah field `password`** dengan value ini:
@@ -327,7 +327,7 @@ Setelah instalasi fresh atau reset:
 ```
 Username: admin
 Password: admin123
-Email:    admin@munifstore.com
+Email:    admin@apgunsstore.com
 Role:     admin
 ```
 
@@ -354,7 +354,7 @@ Role:     admin
 **Solusi:**
 
 1. Pastikan **MySQL running** di Laragon
-2. Cek di phpMyAdmin apakah database `munif_store` ada
+2. Cek di phpMyAdmin apakah database `apguns_store` ada
 3. Jika tidak ada, jalankan `install.php`
 
 ### Error saat login?
@@ -374,13 +374,13 @@ Role:     admin
 1. **Reset password:**
 
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 
 2. **Login:**
 
    ```
-   http://localhost/Munif/pages/login.php
+   http://localhost/ApGuns-Store/pages/login.php
    ```
 
    - Username: `admin`
@@ -388,7 +388,7 @@ Role:     admin
 
 3. **Hapus file reset:**
    ```
-   Hapus file: c:\laragon\www\Munif\reset_admin_password.php
+   Hapus file: c:\laragon\www\ApGuns-Store\reset_admin_password.php
    ```
 
 ---

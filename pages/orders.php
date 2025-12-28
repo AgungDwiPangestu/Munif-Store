@@ -7,7 +7,7 @@ $page_title = 'Pesanan Saya';
 // Check if user is logged in
 if (!is_logged_in()) {
     set_flash('Silakan login terlebih dahulu!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 $user_id = $_SESSION['user_id'];

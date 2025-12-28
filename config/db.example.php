@@ -1,9 +1,11 @@
 <?php
-// Database Configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'apguns_store');
+// Database Configuration Template
+// COPY file ini ke db.php dan sesuaikan dengan konfigurasi database Anda
+
+define('DB_HOST', 'localhost');    // Host database
+define('DB_USER', 'root');         // Username MySQL
+define('DB_PASS', '');             // Password MySQL
+define('DB_NAME', 'apguns_store'); // Nama database
 
 // Create connection
 $conn = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -42,7 +44,7 @@ if (!$conn) {
 // Set charset
 mysqli_set_charset($conn, "utf8mb4");
 
-// Start session if not started
+// Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

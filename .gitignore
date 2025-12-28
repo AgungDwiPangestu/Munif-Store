@@ -2,36 +2,78 @@
 node_modules/
 vendor/
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.sublime-*
+*.swp
+*.swo
+*~
 
 # OS Files
 .DS_Store
 Thumbs.db
 desktop.ini
+*.bak
 
 # Temporary Files
 *.tmp
 *.temp
 *.log
+*.cache
 
 # Uploaded Images (kecuali default)
 assets/images/books/*
 !assets/images/books/default.jpg
 !assets/images/books/default.jpg.html
+!assets/images/books/.gitkeep
 
-# Troubleshooting Tools (jangan di-commit ke production)
+# Database Configuration - JANGAN UPLOAD KE GITHUB!
+config/db.php
+config/db.local.backup.php
+config/*.backup.php
+
+# Security & Troubleshooting Tools
+reset_admin_password.php
 FIX_DATABASE_NOW.php
 fix_database_structure.php
 check_database.php
 fix_isbn_column.sql
+test.php
+debug.php
 
-# Database dumps
+# Database Files & Backups
 *.sql.backup
+*.sql.gz
 dump.sql
+backup/
+*.db
 
-# Environment files
+# Environment & Config Files
 .env
 .env.local
+.env.production
+config.local.php
+
+# Build & Distribution
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Composer
+composer.phar
+composer.lock
+
+# NPM
+package-lock.json
+yarn.lock
+
+# Auto-generated files
+sitemap.xml
+robots.txt.backup
+
+# Session & Cache
+sessions/
+cache/
+tmp/

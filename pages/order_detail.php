@@ -5,11 +5,11 @@ require_once '../config/functions.php';
 // Check if user is logged in
 if (!is_logged_in()) {
     set_flash('Silakan login terlebih dahulu!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    redirect('/Munif/pages/orders.php');
+    redirect('/ApGuns-Store/pages/orders.php');
 }
 
 $order_id = (int)$_GET['id'];
@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 0) {
     set_flash('Pesanan tidak ditemukan!', 'error');
-    redirect('/Munif/pages/orders.php');
+    redirect('/ApGuns-Store/pages/orders.php');
 }
 
 $order = mysqli_fetch_assoc($result);

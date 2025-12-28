@@ -20,7 +20,7 @@ Database Anda masih menggunakan struktur kolom yang terlalu kecil untuk menampun
 
 1. **Buka browser** dan akses:
    ```
-   http://localhost/Munif/check_database.php
+   http://localhost/ApGuns-Store/check_database.php
    ```
 2. **Lihat status** database Anda saat ini
 3. **Klik tombol "Perbaiki Sekarang"** jika ada masalah
@@ -31,7 +31,7 @@ Database Anda masih menggunakan struktur kolom yang terlalu kecil untuk menampun
 ### Opsi 2: Manual via phpMyAdmin
 
 1. Buka **phpMyAdmin** (http://localhost/phpmyadmin)
-2. Pilih database `munif_store`
+2. Pilih database `apguns_store`
 3. Klik tab **SQL**
 4. Jalankan query berikut:
    ```sql
@@ -87,4 +87,4 @@ Jika masih error setelah fix:
 ---
 
 **Dibuat:** 2 Desember 2025  
-**Untuk:** Munif Store - Book Import System
+**Untuk:** ApGuns Store - Book Import System

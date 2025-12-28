@@ -6,7 +6,7 @@ $page_title = 'Login';
 
 // Redirect if already logged in
 if (is_logged_in()) {
-    redirect('/Munif/index.php');
+    redirect('/ApGuns-Store/index.php');
 }
 
 $error = '';
@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 set_flash('Login berhasil! Selamat datang ' . $user['full_name'], 'success');
 
                 if ($user['role'] == 'admin') {
-                    redirect('/Munif/admin/dashboard.php');
+                    redirect('/ApGuns-Store/admin/dashboard.php');
                 } else {
-                    redirect('/Munif/index.php');
+                    redirect('/ApGuns-Store/index.php');
                 }
             } else {
                 $error = 'Password salah!';

@@ -6,7 +6,7 @@ $page_title = 'Kelola Pesanan';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 // Handle status update
@@ -20,7 +20,7 @@ if (isset($_POST['update_status'])) {
     } else {
         set_flash('Gagal memperbarui status!', 'error');
     }
-    redirect('/Munif/admin/manage_orders.php');
+    redirect('/ApGuns-Store/admin/manage_orders.php');
 }
 
 $query = "SELECT o.*, u.full_name, u.email 

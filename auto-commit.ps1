@@ -1,7 +1,7 @@
-# Auto Commit Script - Munif Store
+# Auto Commit Script - ApGuns Store
 # Script ini akan commit semua perubahan satu per satu dengan keterangan yang jelas
 
-Write-Host "🚀 Auto Commit - Munif Store" -ForegroundColor Cyan
+Write-Host "🚀 Auto Commit - ApGuns Store" -ForegroundColor Cyan
 Write-Host "================================`n" -ForegroundColor Cyan
 
 # Pastikan kita di directory yang benar
@@ -18,8 +18,8 @@ if (-not (Test-Path ".git")) {
 $userName = git config user.name
 if ([string]::IsNullOrWhiteSpace($userName)) {
     Write-Host "⚙️  Configuring Git..." -ForegroundColor Yellow
-    git config user.name "Munif Store Developer"
-    git config user.email "dev@munifstore.com"
+    git config user.name "ApGuns Store Developer"
+    git config user.email "dev@apgunsstore.com"
     Write-Host "✅ Git configured`n" -ForegroundColor Green
 }
 
@@ -29,14 +29,14 @@ $commitGroups = @(
         Name = "Database & Configuration"
         Files = @(
             @{ Path = "database.sql"; Message = "Update database schema: Enlarge columns for API import (ISBN, author, publisher, title)" }
-            @{ Path = "config/db.php"; Message = "Update database configuration: Change DB name from guns_bookstore to munif_store" }
+            @{ Path = "config/db.php"; Message = "Update database configuration: Change DB name to apguns_store" }
             @{ Path = "config/functions.php"; Message = "Add helper functions for application" }
         )
     },
     @{
         Name = "Rebranding - Templates & Layout"
         Files = @(
-            @{ Path = "includes/header.php"; Message = "Rebranding: Update header from Guns Bookstore to Munif Store" }
+            @{ Path = "includes/header.php"; Message = "Rebranding: Update header to ApGuns Store" }
             @{ Path = "includes/navbar.php"; Message = "Rebranding: Update navigation bar branding and paths" }
             @{ Path = "includes/footer.php"; Message = "Rebranding: Update footer branding and contact information" }
             @{ Path = "index.php"; Message = "Update homepage: Rebranding, add category cards with gradient design, and API badge" }

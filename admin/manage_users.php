@@ -6,7 +6,7 @@ $page_title = 'Kelola Pengguna';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 $users = mysqli_query($conn, "SELECT * FROM users ORDER BY created_at DESC");

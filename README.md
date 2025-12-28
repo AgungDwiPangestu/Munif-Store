@@ -1,8 +1,16 @@
-# Munif Store - Website E-Commerce Buku
+# 📚 ApGuns Store - Online Bookstore E-Commerce
 
-Website toko buku online lengkap dengan fitur-fitur modern untuk menjual dan mengelola buku secara online.
+> Modern online bookstore platform with complete e-commerce features and Google Books API integration
 
-## 🚀 Fitur Utama
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-blue.svg)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-orange.svg)](https://mysql.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+Sistem toko buku online lengkap yang dibangun dengan PHP native dan MySQL. Dilengkapi dengan panel admin, manajemen produk, sistem keranjang belanja, dan integrasi Google Books API untuk import buku otomatis.
+
+---
+
+## ✨ Fitur Utama
 
 ### Untuk Pelanggan:
 
@@ -25,7 +33,7 @@ Website toko buku online lengkap dengan fitur-fitur modern untuk menjual dan men
 ## 📁 Struktur Project
 
 ```
-Munif/
+ApGuns-Store/
 ├── admin/                      # Panel Admin
 │   ├── dashboard.php          # Dashboard admin
 │   ├── manage_books.php       # Kelola buku
@@ -85,52 +93,61 @@ Munif/
 
 #### **1. Clone Repository**
 
-Buka terminal/command prompt dan jalankan:
-
 ```bash
-git clone https://github.com/AgungDwiPangestu/Munif-Store.git
+git clone https://github.com/YOUR_USERNAME/ApGuns-Store.git
+cd ApGuns-Store
 ```
 
-#### **2. Pindahkan ke Web Server Directory**
+#### **2. Setup Database Configuration**
+
+Copy file konfigurasi database:
+
+```bash
+# Linux/Mac
+cp config/db.example.php config/db.php
+
+# Windows (PowerShell)
+Copy-Item config/db.example.php config/db.php
+
+# Windows (CMD)
+copy config\db.example.php config\db.php
+```
+
+Kemudian edit `config/db.php` sesuai konfigurasi database Anda:
+
+```php
+define('DB_HOST', 'localhost');    // Host database
+define('DB_USER', 'root');         // Username MySQL
+define('DB_PASS', '');             // Password MySQL
+define('DB_NAME', 'apguns_store'); // Nama database
+```
+
+#### **3. Pindahkan ke Web Server Directory**
 
 **Untuk Laragon (Windows):**
 
 ```bash
-# Pindahkan folder hasil clone ke:
-C:\laragon\www\
+# Pindahkan folder ke:
+C:\laragon\www\ApGuns-Store
 ```
+
+````
 
 **Untuk XAMPP (Windows):**
 
 ```bash
-# Pindahkan folder hasil clone ke:
-C:\xampp\htdocs\
-```
+# Pindahkan folder ke:
+C:\xampp\htdocs\ApGuns-Store
+````
 
 **Untuk XAMPP/LAMPP (Linux/Mac):**
 
 ```bash
-# Pindahkan folder hasil clone ke:
-/opt/lampp/htdocs/
+# Pindahkan folder ke:
+/opt/lampp/htdocs/ApGuns-Store
 ```
 
-Atau langsung clone ke folder tersebut:
-
-```bash
-# Untuk Laragon
-cd C:\laragon\www
-git clone https://github.com/AgungDwiPangestu/Munif-Store.git Munif
-
-# Untuk XAMPP Windows
-cd C:\xampp\htdocs
-git clone https://github.com/AgungDwiPangestu/Munif-Store.git Munif
-
-# Untuk XAMPP Linux/Mac
-cd /opt/lampp/htdocs
-git clone https://github.com/AgungDwiPangestu/Munif-Store.git Munif
-```
-
-#### **3. Jalankan Web Server**
+#### **4. Jalankan Web Server**
 
 **Laragon:**
 
@@ -148,12 +165,12 @@ git clone https://github.com/AgungDwiPangestu/Munif-Store.git Munif
 Buka browser dan akses URL berikut:
 
 ```
-http://localhost/Munif/install.php
+http://localhost/ApGuns-Store/install.php
 ```
 
 Installer akan **otomatis**:
 
-- ✅ Membuat database `munif_store`
+- ✅ Membuat database `apguns_store`
 - ✅ Membuat semua tabel yang diperlukan
 - ✅ Mengisi data sample (kategori, buku)
 - ✅ Membuat user admin default
@@ -165,7 +182,7 @@ Installer akan **otomatis**:
 Website sudah siap digunakan. Akses:
 
 ```
-http://localhost/Munif
+http://localhost/ApGuns-Store
 ```
 
 > **💡 Catatan:**
@@ -173,7 +190,7 @@ http://localhost/Munif
 > - Tidak perlu import database manual
 > - Tidak perlu konfigurasi apapun
 > - Semua sudah otomatis dengan `install.php`
-> - Jika menggunakan port custom, sesuaikan URL (misal: `http://localhost:8080/Munif`)
+> - Jika menggunakan port custom, sesuaikan URL (misal: `http://localhost:8080/ApGuns-Store`)
 
 ### Konfigurasi Manual (Opsional)
 
@@ -183,7 +200,7 @@ Jika konfigurasi database Anda berbeda dari default, edit file `config/db.php`:
 define('DB_HOST', 'localhost');    // Host database
 define('DB_USER', 'root');         // Username MySQL
 define('DB_PASS', '');             // Password MySQL (kosong untuk default)
-define('DB_NAME', 'munif_store');  // Nama database
+define('DB_NAME', 'apguns_store');  // Nama database
 ```
 
 ## 👤 Login Credentials
@@ -195,7 +212,7 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 ### Customer:
 
-- Daftar melalui halaman register: `http://localhost/Munif/pages/register.php`
+- Daftar melalui halaman register: `http://localhost/ApGuns-Store/pages/register.php`
 
 ## 📝 Cara Penggunaan
 
@@ -278,7 +295,7 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 1. Akses URL berikut di browser:
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 2. Password admin akan otomatis di-reset ke `admin123`
 3. Login kembali dengan username `admin` dan password `admin123`
@@ -288,11 +305,11 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 1. Drop database lama (opsional):
    ```sql
-   DROP DATABASE IF EXISTS munif_store;
+   DROP DATABASE IF EXISTS apguns_store;
    ```
 2. Jalankan installer lagi:
    ```
-   http://localhost/Munif/install.php
+   http://localhost/ApGuns-Store/install.php
    ```
 3. Installer otomatis membuat hash password yang fresh dan compatible dengan server Anda
 
@@ -301,7 +318,7 @@ define('DB_NAME', 'munif_store');  // Nama database
 1. Buka phpMyAdmin atau MySQL console
 2. Jalankan query berikut:
    ```sql
-   USE munif_store;
+   USE apguns_store;
    -- Generate hash baru untuk password 'admin123'
    UPDATE users
    SET password = '$2y$10$YourNewHashHere'
@@ -318,7 +335,7 @@ define('DB_NAME', 'munif_store');  // Nama database
 
 - Pastikan MySQL sudah running di Laragon/XAMPP
 - Cek konfigurasi di `config/db.php`
-- Pastikan database `munif_store` sudah dibuat (jalankan `install.php`)
+- Pastikan database `apguns_store` sudah dibuat (jalankan `install.php`)
 
 ### Gambar Tidak Muncul:
 
@@ -341,17 +358,49 @@ define('DB_NAME', 'munif_store');  // Nama database
 - Pastikan API Google Books tidak terblokir
 - Lihat error di console browser (F12)
 
-## 📞 Support
+## 🤝 Contributing
 
-Untuk pertanyaan atau bantuan, silakan hubungi:
+Contributions are welcome! Untuk berkontribusi:
 
-- Email: admin@munifstore.com
-- Website: http://localhost/Munif
+1. Fork repository ini
+2. Buat branch fitur baru (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan Anda (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
 
 ## 📄 License
 
-Project ini dibuat untuk keperluan pembelajaran dan development.
+Project ini menggunakan MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+
+## 👨‍💻 Author
+
+**Your Name**
+
+- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+- Email: your.email@example.com
+
+## 🙏 Acknowledgments
+
+- Google Books API untuk data buku
+- Font Awesome untuk icons
+- Komunitas PHP & MySQL
+
+## 📸 Screenshots
+
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+### Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Book Catalog
+
+![Book Catalog](screenshots/catalog.png)
 
 ---
 
-**Selamat Menggunakan Munif Store! 📚**
+⭐ Jika project ini bermanfaat, jangan lupa berikan star!
+
+**Made with ❤️ for the book lovers community**

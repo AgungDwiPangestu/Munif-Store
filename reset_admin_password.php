@@ -10,7 +10,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$dbname = 'munif_store';
+$dbname = 'apguns_store';
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 

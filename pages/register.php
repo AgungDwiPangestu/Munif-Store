@@ -6,7 +6,7 @@ $page_title = 'Daftar';
 
 // Redirect if already logged in
 if (is_logged_in()) {
-    redirect('/Munif/index.php');
+    redirect('/ApGuns-Store/index.php');
 }
 
 $error = '';
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (mysqli_query($conn, $insert_query)) {
                 set_flash('Registrasi berhasil! Silakan login.', 'success');
-                redirect('/Munif/pages/login.php');
+                redirect('/ApGuns-Store/pages/login.php');
             } else {
                 $error = 'Registrasi gagal: ' . mysqli_error($conn);
             }

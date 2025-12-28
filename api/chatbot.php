@@ -36,7 +36,7 @@ elseif (preg_match('/(keranjang|cart|belanja)/', $message)) $intent = 'cart';
 
 switch ($intent) {
     case 'greeting':
-        echo json_encode(reply('Halo 👋, selamat datang di Munif Store! Saya bisa bantu cari buku, cek pesanan, atau info kontak.', ['Cari buku', 'Cek pesanan', 'Hubungi admin']));
+        echo json_encode(reply('Halo 👋, selamat datang di ApGuns Store! Saya bisa bantu cari buku, cek pesanan, atau info kontak.', ['Cari buku', 'Cek pesanan', 'Hubungi admin']));
         break;
     case 'help':
         echo json_encode(reply('Berikut yang bisa saya bantu: \n• Cari buku berdasarkan judul, penulis, atau kategori\n• Melihat detail dan stok buku\n• Cek status pesanan Anda\n• Info kontak admin', ['Cari buku', 'Cek pesanan', 'Kontak admin']));
@@ -45,7 +45,7 @@ switch ($intent) {
         echo json_encode(reply('Jam operasional: Senin–Jumat 09.00–17.00 WIB. Order online 24/7, dukungan admin pada jam kerja.', ['Kontak admin', 'Cari buku']));
         break;
     case 'contact':
-        echo json_encode(reply('Anda bisa menghubungi kami di email admin@munifstore.com atau melalui halaman kontak. Ada yang bisa saya bantu sekarang?', ['Cari buku', 'Cek pesanan']));
+        echo json_encode(reply('Anda bisa menghubungi kami di email admin@apgunsstore.com atau melalui halaman kontak. Ada yang bisa saya bantu sekarang?', ['Cari buku', 'Cek pesanan']));
         break;
     case 'orders':
         echo json_encode(reply('Untuk cek pesanan, login lalu buka halaman Pesanan Saya di navbar. Ingin saya arahkan ke halaman itu?', ['Buka Pesanan', 'Login']));

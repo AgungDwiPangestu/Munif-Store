@@ -1,4 +1,4 @@
-# 📚 API Import Buku - Munif Store
+# 📚 API Import Buku - ApGuns Store
 
 Dokumentasi lengkap untuk fitur import buku otomatis dari Google Books API.
 
@@ -16,7 +16,7 @@ Dokumentasi lengkap untuk fitur import buku otomatis dari Google Books API.
 ## 📁 File yang Ditambahkan
 
 ```
-Munif/
+ApGuns-Store/
 ├── admin/
 │   ├── import_books.php           # Halaman import buku (UI)
 │   └── process_import_books.php   # Proses import ke database
@@ -36,7 +36,7 @@ Munif/
 2. **Akses Halaman Import**
 
    - Dari dashboard admin, klik tombol **"Import Buku dari API"**
-   - Atau akses langsung: `http://localhost/Munif/admin/import_books.php`
+   - Atau akses langsung: `http://localhost/ApGuns-Store/admin/import_books.php`
 
 3. **Cari Buku**
 
@@ -70,7 +70,7 @@ Munif/
 
 #### Endpoint: Search Books
 
-**URL:** `http://localhost/Munif/api/search_books_api.php`
+**URL:** `http://localhost/ApGuns-Store/api/search_books_api.php`
 
 **Method:** GET
 
@@ -86,13 +86,13 @@ Munif/
 
 ```bash
 # Cari buku tentang programming
-http://localhost/Munif/api/search_books_api.php?query=programming&maxResults=20
+http://localhost/ApGuns-Store/api/search_books_api.php?query=programming&maxResults=20
 
 # Cari dari Open Library
-http://localhost/Munif/api/search_books_api.php?query=novel&source=openlibrary&maxResults=10
+http://localhost/ApGuns-Store/api/search_books_api.php?query=novel&source=openlibrary&maxResults=10
 
 # Cari buku bisnis
-http://localhost/Munif/api/search_books_api.php?query=business&maxResults=30
+http://localhost/ApGuns-Store/api/search_books_api.php?query=business&maxResults=30
 ```
 
 **Response Format:**
@@ -332,10 +332,10 @@ Jika ada masalah:
 
 ## 📄 License
 
-Fitur ini adalah bagian dari Munif Store dan menggunakan license yang sama.
+Fitur ini adalah bagian dari ApGuns Store dan menggunakan license yang sama.
 
 ---
 
 **Happy Importing! 📚✨**
 
-_Dibuat untuk Munif Store - December 2025_
+_Dibuat untuk ApGuns Store - December 2025_

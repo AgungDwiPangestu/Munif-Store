@@ -7,7 +7,7 @@ $page_title = 'Checkout';
 // Check if user is logged in
 if (!is_logged_in()) {
     set_flash('Silakan login terlebih dahulu!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 $user_id = $_SESSION['user_id'];
@@ -21,7 +21,7 @@ $cart_items = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($cart_items) == 0) {
     set_flash('Keranjang belanja kosong!', 'error');
-    redirect('/Munif/pages/cart.php');
+    redirect('/ApGuns-Store/pages/cart.php');
 }
 
 // Calculate total
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_commit($conn);
 
             set_flash('Pesanan berhasil dibuat! Nomor pesanan: #' . $order_id, 'success');
-            redirect('/Munif/pages/order_detail.php?id=' . $order_id);
+            redirect('/ApGuns-Store/pages/order_detail.php?id=' . $order_id);
         } catch (Exception $e) {
             mysqli_rollback($conn);
             $error = $e->getMessage();

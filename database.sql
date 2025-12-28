@@ -1,6 +1,6 @@
 -- Database Schema untuk Toko Buku Online
-CREATE DATABASE IF NOT EXISTS munif_store;
-USE munif_store;
+CREATE DATABASE IF NOT EXISTS apguns_store;
+USE apguns_store;
 
 -- Tabel Users
 CREATE TABLE users (
@@ -89,4 +89,4 @@ INSERT INTO categories (name, description) VALUES
 -- Insert admin user (password will be set by installer)
 -- Temporary hash, akan di-update oleh install.php
 INSERT INTO users (username, email, password, full_name, role) VALUES
-('admin', 'admin@munifstore.com', 'temp_will_be_updated', 'Administrator', 'admin');
+('admin', 'admin@apgunsstore.com', 'temp_will_be_updated', 'Administrator', 'admin');

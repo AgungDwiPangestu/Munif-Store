@@ -6,7 +6,7 @@ $page_title = 'Profil Saya';
 
 if (!is_logged_in()) {
     set_flash('Silakan login terlebih dahulu!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 $user_id = $_SESSION['user_id'];
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($conn, $update_query)) {
         set_flash('Profil berhasil diperbarui!', 'success');
-        redirect('/Munif/pages/profile.php');
+        redirect('/ApGuns-Store/pages/profile.php');
     } else {
         $error = 'Gagal memperbarui profil!';
     }

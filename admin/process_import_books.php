@@ -4,11 +4,11 @@ require_once '../config/functions.php';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirect('/Munif/admin/import_books.php');
+    redirect('/ApGuns-Store/admin/import_books.php');
 }
 
 $category_id = (int)$_POST['category_id'];
@@ -16,7 +16,7 @@ $books = $_POST['books'] ?? [];
 
 if (empty($books)) {
     set_flash('Tidak ada buku yang dipilih untuk diimport!', 'error');
-    redirect('/Munif/admin/import_books.php');
+    redirect('/ApGuns-Store/admin/import_books.php');
 }
 
 $success_count = 0;
@@ -96,7 +96,7 @@ if ($success_count > 0) {
     set_flash("Gagal import buku. Semua buku mungkin sudah ada di database.", 'error');
 }
 
-redirect('/Munif/admin/manage_books.php');
+redirect('/ApGuns-Store/admin/manage_books.php');
 
 /**
  * Download book cover image from URL

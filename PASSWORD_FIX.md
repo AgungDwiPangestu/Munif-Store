@@ -2,7 +2,7 @@
 
 ## Masalah yang Anda Alami
 
-Ketika menginstall Munif Store di tempat/komputer lain, **password admin selalu salah** meskipun sudah menggunakan `admin123`.
+Ketika menginstall ApGuns Store di tempat/komputer lain, **password admin selalu salah** meskipun sudah menggunakan `admin123`.
 
 ## Penyebab
 
@@ -19,12 +19,12 @@ Hash password bcrypt yang di-generate berbeda antar server karena:
 1. Buka browser, akses:
 
    ```
-   http://localhost/Munif/reset_admin_password.php
+   http://localhost/ApGuns-Store/reset_admin_password.php
    ```
 
 2. Password admin akan otomatis direset ke `admin123` dengan hash yang fresh
 
-3. Login di `http://localhost/Munif/pages/login.php`
+3. Login di `http://localhost/ApGuns-Store/pages/login.php`
 
    - Username: `admin`
    - Password: `admin123`
@@ -35,12 +35,12 @@ Hash password bcrypt yang di-generate berbeda antar server karena:
 
 ### 🔄 Cara 2: Install Ulang Database
 
-1. Drop database `munif_store` di phpMyAdmin (optional)
+1. Drop database `apguns_store` di phpMyAdmin (optional)
 
 2. Jalankan installer:
 
    ```
-   http://localhost/Munif/install.php
+   http://localhost/ApGuns-Store/install.php
    ```
 
 3. **Installer sudah diperbaiki!** Sekarang otomatis:
@@ -66,8 +66,8 @@ Hash password bcrypt yang di-generate berbeda antar server karena:
 ## 🎯 Quick Fix (3 Langkah)
 
 ```
-1. http://localhost/Munif/reset_admin_password.php  (reset password)
-2. http://localhost/Munif/pages/login.php           (login: admin/admin123)
+1. http://localhost/ApGuns-Store/reset_admin_password.php  (reset password)
+2. http://localhost/ApGuns-Store/pages/login.php           (login: admin/admin123)
 3. Hapus file reset_admin_password.php              (keamanan)
 ```
 

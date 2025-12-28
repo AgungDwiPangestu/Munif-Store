@@ -3,7 +3,7 @@ require_once '../config/db.php';
 require_once '../config/functions.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    redirect('/Munif/pages/books.php');
+    redirect('/ApGuns-Store/pages/books.php');
 }
 
 $book_id = (int)$_GET['id'];
@@ -16,7 +16,7 @@ $query = "SELECT b.*, c.name as category_name
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 0) {
-    redirect('/Munif/pages/books.php');
+    redirect('/ApGuns-Store/pages/books.php');
 }
 
 $book = mysqli_fetch_assoc($result);

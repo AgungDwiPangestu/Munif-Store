@@ -13,7 +13,7 @@ if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-echo "<h2>🚀 Instalasi Database Munif Store</h2>";
+echo "<h2>🚀 Instalasi Database ApGuns Store</h2>";
 echo "<hr>";
 
 // Baca file SQL
@@ -55,16 +55,16 @@ foreach ($statements as $statement) {
 
         // Show important operations
         if (stripos($statement, 'CREATE DATABASE') !== false) {
-            echo "<p style='color: green;'>✅ Database 'munif_store' berhasil dibuat</p>";
+            echo "<p style='color: green;'>✅ Database 'apguns_store' berhasil dibuat</p>";
             $database_created = true;
             // Select the database after creating it
-            mysqli_select_db($conn, 'munif_store');
+            mysqli_select_db($conn, 'apguns_store');
         } elseif (stripos($statement, 'USE ') !== false) {
             // Automatically select database
             if (!$database_created) {
-                mysqli_select_db($conn, 'munif_store');
+                mysqli_select_db($conn, 'apguns_store');
             }
-            echo "<p style='color: green;'>✅ Database munif_store dipilih</p>";
+            echo "<p style='color: green;'>✅ Database apguns_store dipilih</p>";
         } elseif (stripos($statement, 'CREATE TABLE') !== false) {
             preg_match('/CREATE TABLE (?:IF NOT EXISTS )?`?(\w+)`?/i', $statement, $matches);
             $table_name = $matches[1] ?? 'unknown';
@@ -98,7 +98,7 @@ echo "<hr>";
 
 // Update admin password with fresh hash
 if (!$database_created) {
-    mysqli_select_db($conn, 'munif_store');
+    mysqli_select_db($conn, 'apguns_store');
 }
 
 $fresh_password_hash = password_hash('admin123', PASSWORD_DEFAULT);

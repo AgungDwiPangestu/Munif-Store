@@ -27,6 +27,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
   </text>
   
   <text x="150" y="340" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" opacity="0.7">
-    Munif Store
+    ApGuns Store
   </text>
 </svg>

@@ -6,7 +6,7 @@ $page_title = 'Tambah Buku';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 $error = '';
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_query($conn, $query)) {
             set_flash('Buku berhasil ditambahkan!', 'success');
-            redirect('/Munif/admin/manage_books.php');
+            redirect('/ApGuns-Store/admin/manage_books.php');
         } else {
             $error = 'Gagal menambahkan buku: ' . mysqli_error($conn);
         }

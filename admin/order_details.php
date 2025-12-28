@@ -4,11 +4,11 @@ require_once '../config/functions.php';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    redirect('/Munif/admin/manage_orders.php');
+    redirect('/ApGuns-Store/admin/manage_orders.php');
 }
 
 $order_id = (int)$_GET['id'];
@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $query);
 
 if (!$result || mysqli_num_rows($result) == 0) {
     set_flash('Pesanan tidak ditemukan!', 'error');
-    redirect('/Munif/admin/manage_orders.php');
+    redirect('/ApGuns-Store/admin/manage_orders.php');
 }
 
 $order = mysqli_fetch_assoc($result);

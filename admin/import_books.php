@@ -6,7 +6,7 @@ $page_title = 'Import Buku dari API';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 // Get categories for mapping

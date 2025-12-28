@@ -7,7 +7,7 @@ $page_title = 'Admin Dashboard';
 // Check if user is admin
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak! Anda harus login sebagai admin.', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 // Get statistics

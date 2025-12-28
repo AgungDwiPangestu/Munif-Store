@@ -38,7 +38,7 @@ function confirmDelete(
 
 // Add to cart function
 function addToCart(bookId) {
-  fetch("/Munif/pages/add_to_cart.php", {
+  fetch("/ApGuns-Store/pages/add_to_cart.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -62,7 +62,7 @@ function addToCart(bookId) {
 
 // Update cart count
 function updateCartCount() {
-  fetch("/Munif/pages/get_cart_count.php")
+  fetch("/ApGuns-Store/pages/get_cart_count.php")
     .then((response) => response.json())
     .then((data) => {
       const cartCount = document.querySelector(".cart-count");
@@ -80,7 +80,7 @@ function updateQuantity(cartId, quantity) {
     }
   }
 
-  fetch("/Munif/pages/update_cart.php", {
+  fetch("/ApGuns-Store/pages/update_cart.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -103,7 +103,7 @@ function removeFromCart(cartId) {
     return;
   }
 
-  fetch("/Munif/pages/remove_from_cart.php", {
+  fetch("/ApGuns-Store/pages/remove_from_cart.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

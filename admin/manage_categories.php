@@ -6,7 +6,7 @@ $page_title = 'Kelola Kategori';
 
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 // Handle add/edit/delete
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             set_flash('Kategori berhasil diperbarui!', 'success');
         }
     }
-    redirect('/Munif/admin/manage_categories.php');
+    redirect('/ApGuns-Store/admin/manage_categories.php');
 }
 
 if (isset($_GET['delete'])) {
@@ -38,7 +38,7 @@ if (isset($_GET['delete'])) {
     if (mysqli_query($conn, $delete_query)) {
         set_flash('Kategori berhasil dihapus!', 'success');
     }
-    redirect('/Munif/admin/manage_categories.php');
+    redirect('/ApGuns-Store/admin/manage_categories.php');
 }
 
 $categories = mysqli_query($conn, "SELECT * FROM categories ORDER BY name");

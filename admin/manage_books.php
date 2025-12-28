@@ -7,7 +7,7 @@ $page_title = 'Kelola Buku';
 // Check if user is admin
 if (!is_logged_in() || !is_admin()) {
     set_flash('Akses ditolak!', 'error');
-    redirect('/Munif/pages/login.php');
+    redirect('/ApGuns-Store/pages/login.php');
 }
 
 // Handle delete
@@ -19,7 +19,7 @@ if (isset($_GET['delete'])) {
     } else {
         set_flash('Gagal menghapus buku!', 'error');
     }
-    redirect('/Munif/admin/manage_books.php');
+    redirect('/ApGuns-Store/admin/manage_books.php');
 }
 
 // Get all books

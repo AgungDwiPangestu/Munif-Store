@@ -23,7 +23,7 @@ include 'includes/navbar.php';
 
 <section class="hero">
     <div class="container">
-        <h1>Selamat Datang di Munif Store</h1>
+        <h1>Selamat Datang di ApGuns Store</h1>
         <p>Temukan buku favorit Anda dengan koleksi terlengkap dan harga terbaik</p>
         <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; margin: 15px 0;">
             <i class="fas fa-robot" style="font-size: 24px;"></i>
